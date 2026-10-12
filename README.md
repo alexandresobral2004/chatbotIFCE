@@ -4,6 +4,21 @@
 
 Chatbot **RAG** (Retrieval-Augmented Generation) de **metodologia científica e normas ABNT/APA**, extraído do sistema JupiterClass como serviço independente. O assistente atua como um "Professor Doutor em Metodologia Científica" que responde dúvidas sobre TCC, artigos e monografias com base em uma base de conhecimento própria (manuais do IFCE, resoluções do CNS, ABNT etc.).
 
+## Projeto aberto e contribuição para a ciência
+
+O Methodology.ia é **software público e de código aberto** (licença [MIT](LICENSE)), criado para democratizar o acesso a orientação em metodologia científica e normas ABNT/APA. Seus princípios:
+
+- **Ciência aberta**: código, arquitetura e documentação abertos para uso, auditoria e reprodução por pesquisadores, estudantes e instituições.
+- **Transparência**: respostas fundamentadas em fontes recuperadas e citadas em ABNT NBR 6023, com verificação de alucinação.
+- **Reprodutibilidade**: pipeline RAG determinístico (`temperature=0`), limiares explícitos e testes automatizados.
+- **Extensibilidade**: a base de conhecimento e os provedores de LLM são intercambiáveis (arquitetura hexagonal), permitindo adaptar o sistema a outras áreas e instituições.
+- **Comunidade**: contribuições são bem-vindas — veja [CONTRIBUTING.md](CONTRIBUTING.md).
+
+**Como citar**: use os metadados em [CITATION.cff](CITATION.cff).
+
+> [!IMPORTANT]
+> A licença MIT cobre o **código**. Os documentos em `backend/knowledge/` (livros, normas, manuais) podem ter direitos autorais próprios e **precisam ter sua redistribuição verificada antes da publicação** do repositório. Também não publique `.env`, chaves de API ou dados de conversas/usuários (`migrar_dados.sh` e histórico antigo).
+
 ---
 
 ## 1. Visão geral
@@ -258,3 +273,18 @@ O `docker-compose.yml` sobe `db` (`pgvector/pgvector:pg16`, usuário/banco `rag_
 - `project_knowledge.json` é estático (sem gerador).
 - O streaming é simulado: o grafo roda por completo e a resposta final é enviada em blocos de 20 caracteres.
 - O Optimizer apenas prefixa a consulta (não usa LLM) e o roteamento é heurístico por palavras-chave.
+- Antes de tornar o repositório público: revisar direitos autorais dos PDFs em `backend/knowledge/`, confirmar que nenhum segredo está no histórico git e definir o(s) autor(es) em `CITATION.cff`.
+
+---
+
+## 15. Licença, contribuição e citação
+
+| Item | Arquivo |
+|---|---|
+| Licença do código (MIT) | [LICENSE](LICENSE) |
+| Guia de contribuição | [CONTRIBUTING.md](CONTRIBUTING.md) |
+| Citação acadêmica | [CITATION.cff](CITATION.cff) |
+
+Sugestão de citação:
+
+> Methodology.ia – Assistente de Pesquisa Acadêmica. Software de código aberto (MIT), 2026. Disponível em: https://github.com/alexandresobral2004/chatbotIFCE.
