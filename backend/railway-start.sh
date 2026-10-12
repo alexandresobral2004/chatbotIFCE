@@ -1,0 +1,22 @@
+#!/bin/bash
+set -e
+
+echo "=== JupiterClass Chat: Iniciando ==="
+echo "PORT=$PORT"
+
+echo "=== Aguardando banco de dados ==="
+python -c "
+import os, time, psycopg2
+db = os.environ['DATABASE_URL']
+for i in range(30):
+    try:
+        psycopg2.connect(db).close()
+        print('DB pronto!')
+        break
+    except Exception as e:
+        print(f'Tentativa {i+1}/30: {e}')
+        time.sleep(2)
+"
+
+echo "=== Iniciando servidor FastAPI ==="
+exec uvicorn main:app --host 0.0.0.0 --port "${PORT:-8000}"

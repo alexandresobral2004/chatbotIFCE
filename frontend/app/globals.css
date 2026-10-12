@@ -1,0 +1,362 @@
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+    /* Paleta JupiterClass — azul profundo (foco/estudo) + âmbar (destaque) */
+    --background: 0 0% 99%; /* #FCFCFC Fundo Claro */
+    --foreground: 345 2% 21%; /* #373435 Grafite Escuro */
+    --card: 0 0% 100%; /* #FFFFFF Branco */
+    --card-foreground: 345 2% 21%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 345 2% 21%;
+    --primary: 221 65% 46%; /* #2F5FC4 Jupiter Blue */
+    --primary-foreground: 0 0% 100%; /* Branco para máximo contraste */
+    --secondary: 0 0% 96%; /* #F4F4F4 Cinza Gelo */
+    --secondary-foreground: 345 2% 21%;
+    --muted: 0 0% 95%; /* #F0F0F0 */
+    --muted-foreground: 0 0% 45%; /* #737373 */
+    --accent: 35 90% 55%; /* #F0A030 Chalk Amber */
+    --accent-foreground: 345 2% 21%;
+    --success: 160 84% 33%; /* #0F9D6B */
+    --success-foreground: 0 0% 100%;
+    --warning: 38 92% 50%; /* #F5A623 */
+    --warning-foreground: 345 2% 21%;
+    --destructive: 4 89% 44%; /* #D61A0C */
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 89%; /* #E2E2E2 Divisórias e bordas */
+    --input: 0 0% 89%;
+    --ring: 221 65% 46%;
+    --radius: 0.75rem;
+  }
+
+  :root[data-theme='light'] {
+    color-scheme: light;
+  }
+
+  /* Modo Noturno JupiterClass */
+  :root[data-theme='dark'],
+  .dark {
+    color-scheme: dark;
+    --background: 210 10% 9%; /* #14171A Grafite Profundo */
+    --foreground: 0 0% 96%; /* #F4F4F4 */
+    --card: 210 10% 13%; /* #1F2327 */
+    --card-foreground: 0 0% 96%;
+    --popover: 210 10% 13%;
+    --popover-foreground: 0 0% 96%;
+    --primary: 221 70% 62%; /* #5B84E0 Jupiter Blue Dark */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 210 10% 18%;
+    --secondary-foreground: 0 0% 96%;
+    --muted: 210 10% 16%;
+    --muted-foreground: 0 0% 65%;
+    --accent: 35 90% 62%; /* #F5B454 */
+    --accent-foreground: 210 10% 9%;
+    --success: 160 70% 45%;
+    --success-foreground: 210 10% 9%;
+    --warning: 38 90% 58%;
+    --warning-foreground: 210 10% 9%;
+    --destructive: 4 85% 55%; /* #E5392D Vermelho Alerta */
+    --destructive-foreground: 0 0% 100%;
+    --border: 210 10% 20%;
+    --input: 210 10% 20%;
+    --ring: 221 70% 62%;
+  }
+}
+
+@layer base {
+  * {
+    border-color: hsl(var(--border));
+  }
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-family: 'Geist', system-ui, -apple-system, sans-serif;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 2s linear infinite;
+  background: linear-gradient(
+    90deg,
+    hsl(var(--muted)) 25%,
+    hsl(var(--muted) / 0.5) 50%,
+    hsl(var(--muted)) 75%
+  );
+  background-size: 200% 100%;
+}
+
+.animate-pulse-dot {
+  animation: pulse-dot 1s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(0.8);
+  }
+}
+
+.animate-typing {
+  animation: typing 1s steps(4) infinite;
+}
+
+@keyframes typing {
+  0% { opacity: 0; }
+  25% { opacity: 1; }
+  75% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hidden {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Barra de rolagem do documento: mais larga, na borda da janela */
+.scrollbar-editor::-webkit-scrollbar {
+  width: 14px;
+}
+.scrollbar-editor::-webkit-scrollbar-track {
+  background: hsl(var(--muted) / 0.5);
+}
+.scrollbar-editor::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground) / 0.35);
+  border-radius: 9999px;
+  border: 3px solid transparent;
+  background-clip: padding-box;
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: hsl(var(--border));
+  border-radius: 9999px;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground) / 0.3);
+}
+
+/* ------------------------------------------------------------------ */
+/* Academic Editor (Tiptap) styles                                     */
+/* ------------------------------------------------------------------ */
+
+/* Document text: A4 typography */
+/* O folio-editor põe overflow-x:hidden inline neste contêiner, o que o
+   transforma em área rolável própria (barra colada na folha). O !important
+   aqui vence o estilo inline e deixa só a rolagem da janela, como no Word. */
+.nexus-editor-content {
+  overflow: visible !important;
+}
+
+.nexus-editor-content .tiptap {
+  outline: none;
+  font-family: Arial, sans-serif;
+  font-size: 12pt;
+  line-height: 1.8;
+  text-align: justify;
+  /* Fixo (não segue --foreground do tema): a "folha" do editor é sempre
+     branca, como um documento de verdade, independente de o app estar
+     no modo claro ou escuro — por isso o texto também precisa ser
+     sempre escuro aqui, senão fica ilegível no modo escuro. */
+  color: #262626;
+  min-height: 600px;
+  overflow-y: visible !important;
+}
+
+/* Seleção de texto: a folha é sempre branca, mas no tema escuro o navegador
+   escolhe uma cor de seleção que some sobre ela (invisível). Cor própria, igual
+   nos dois temas. O :not respeita o ProseMirror-hideselection (seleção de nós,
+   como figuras, que se destacam por conta própria). */
+.nexus-editor-content .tiptap:not(.ProseMirror-hideselection) ::selection,
+.nexus-editor-content .tiptap:not(.ProseMirror-hideselection)::selection {
+  background-color: #b4d5fe;
+  color: #1a1a1a;
+}
+
+.nexus-editor-content .tiptap > * + * {
+  margin-top: 0.5rem;
+}
+
+/* Tabulação (largura calculada pelo plugin conforme as paradas da régua) */
+.nexus-editor-content .tiptap .nx-tab {
+  display: inline-block;
+  width: 1.25cm;
+  height: 1em;
+  vertical-align: baseline;
+}
+
+/* Headings */
+.nexus-editor-content .tiptap h1 {
+  font-size: 14pt;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin: 0.9em 0 0.5em;
+  line-height: 1.4;
+}
+
+.nexus-editor-content .tiptap h2 {
+  font-size: 12pt;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin: 0.9em 0 0.5em;
+  line-height: 1.4;
+  border-bottom: 1px solid #e2e2e2;
+  padding-bottom: 4px;
+}
+
+.nexus-editor-content .tiptap h3 {
+  font-size: 12pt;
+  font-weight: bold;
+  margin: 0.9em 0 0.5em;
+  line-height: 1.4;
+}
+
+.nexus-editor-content .tiptap p.is-editor-empty:first-child::before {
+  content: attr(data-placeholder);
+  float: left;
+  /* Fixo pelo mesmo motivo da regra .tiptap acima: papel sempre branco. */
+  color: #262626a6;
+  pointer-events: none;
+  height: 0;
+}
+
+/* Lists: restore markers/numbers (fixes Preflight reset that hid them) */
+.nexus-editor-content .tiptap ul,
+.nexus-editor-content .tiptap ol {
+  list-style: none;
+  margin: 0.5em 0;
+  padding-left: 1.5cm;
+}
+
+.nexus-editor-content .tiptap ul {
+  list-style-type: disc;
+}
+
+.nexus-editor-content .tiptap ol {
+  list-style-type: decimal;
+}
+
+.nexus-editor-content .tiptap ul ul {
+  list-style-type: circle;
+}
+
+.nexus-editor-content .tiptap ol ol {
+  list-style-type: lower-alpha;
+}
+
+.nexus-editor-content .tiptap li {
+  list-style-position: outside;
+  margin-bottom: 0.2em;
+}
+
+/* Comment highlight mark (requisito d: trecho em amarelo) */
+.nexus-editor-content .tiptap .comment-mark {
+  background-color: rgba(251, 191, 36, 0.4);
+  border-bottom: 2px solid #f59e0b;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.nexus-editor-content .tiptap .comment-mark.comment-resolved {
+  background-color: rgba(16, 185, 129, 0.18);
+  border-bottom-color: #10b981;
+}
+
+.nexus-editor-content .tiptap .comment-mark:hover {
+  filter: brightness(1.03);
+}
+
+/* ABNT open-sided table */
+.nexus-editor-content .tiptap table {
+  border-collapse: collapse;
+  table-layout: fixed;
+  width: 100%;
+  margin: 0.5em 0;
+  font-family: Arial;
+  font-size: 11pt;
+}
+
+.nexus-editor-content .tiptap table th,
+.nexus-editor-content .tiptap table td {
+  border: 1px solid #e2e2e2;
+  padding: 6px 10px;
+  vertical-align: top;
+  text-align: left;
+}
+
+.nexus-editor-content .tiptap table th {
+  font-weight: bold;
+  background-color: #f0f0f0;
+}
+
+.nexus-editor-content .tiptap table .selectedCell:after {
+  z-index: 2;
+  position: absolute;
+  content: '';
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: hsl(var(--primary) / 0.15);
+  pointer-events: none;
+}
+
+/* Resize handles for tables */
+.nexus-editor-content .tiptap .column-resize-handle {
+  background-color: hsl(var(--primary));
+  bottom: -2px;
+  position: absolute;
+  right: -2px;
+  pointer-events: none;
+  top: 0;
+  width: 4px;
+}
+
+.nexus-editor-content .tiptap .resize-cursor {
+  cursor: col-resize;
+}
+
+
+/* Foco de teclado sempre visível em campos de formulário. Vários campos removem o contorno
+   (focus:outline-none) sem outro indicador; este anel usa box-shadow, então não conflita com
+   os campos que já definem focus:ring (a classe do campo tem prioridade). */
+@layer base {
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible {
+    box-shadow: 0 0 0 2px hsl(var(--background)), 0 0 0 4px hsl(var(--primary) / 0.5);
+  }
+}
