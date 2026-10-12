@@ -1,4 +1,6 @@
-# Documentação do Sistema — jupiterclass-chat
+# Documentação do Sistema — Methodology.ia – Assistente de Pesquisa Acadêmica
+
+> Título público da aplicação (aba do navegador, `frontend/app/layout.tsx`): **Methodology.ia – Assistente de Pesquisa Acadêmica**. O nome de repositório/pacote técnico continua `jupiterclass-chat`.
 
 Chatbot **RAG** (Retrieval-Augmented Generation) de **metodologia científica e normas ABNT/APA**, extraído do sistema JupiterClass como serviço independente. O assistente atua como um "Professor Doutor em Metodologia Científica" que responde dúvidas sobre TCC, artigos e monografias com base em uma base de conhecimento própria (manuais do IFCE, resoluções do CNS, ABNT etc.).
 
