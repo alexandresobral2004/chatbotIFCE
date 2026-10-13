@@ -70,7 +70,7 @@ const MessageBubble = ({
               </svg>
             </div>
             <div>
-              <span className="text-sm font-semibold text-foreground">JupiterClass</span>
+              <span className="text-sm font-semibold text-foreground">Methodology.ia</span>
               <p className="text-xs text-muted-foreground">Assistente de Pesquisa</p>
             </div>
           </div>
@@ -201,7 +201,7 @@ const WelcomeScreen = ({ onSelectQuery }: { onSelectQuery: (text: string) => voi
     </div>
 
     <h2 className="text-2xl font-bold text-foreground mb-3 text-center">
-      Olá, sou o JupiterClass
+      Olá, sou o Methodology.ia
     </h2>
 
     <p className="text-muted-foreground text-center max-w-md mb-10 leading-relaxed">
@@ -517,7 +517,7 @@ export function ChatInterface({
       <div className="px-4 py-2 border-b border-border bg-card/60 backdrop-blur-sm flex items-center justify-between gap-3 sticky top-0 z-20">
         <div className="flex items-center gap-2">
           <div className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
-          <span className="text-xs font-bold text-foreground">Orientador Virtual</span>
+          <span className="text-xs font-bold text-foreground">Methodology.ia</span>
           <span className="text-[10px] text-muted-foreground hidden sm:inline">• Metodologia Científica & ABNT</span>
         </div>
 
@@ -655,7 +655,7 @@ export function ChatInterface({
               Pressione <kbd className="px-1.5 py-0.5 rounded bg-muted text-xs font-medium">Enter</kbd> para enviar
             </p>
             <p className="text-xs text-muted-foreground">
-              Powered by JupiterClass
+              Powered by Methodology.ia
             </p>
           </div>
         </div>
@@ -673,7 +673,7 @@ export function ChatInterface({
             Valorizamos a sua escrita! ✍️
           </h3>
           <p className="text-sm text-muted-foreground leading-relaxed">
-            O objetivo do **JupiterClass** é ajudar você a desenvolver suas próprias ideias ativamente. Copiar e colar textos prontos prejudica seu aprendizado e seu rigor acadêmico.
+            O objetivo do **Methodology.ia** é ajudar você a desenvolver suas próprias ideias ativamente. Copiar e colar textos prontos prejudica seu aprendizado e seu rigor acadêmico.
           </p>
           <p className="text-xs text-primary font-semibold bg-primary/10 py-2 rounded-lg">
             Vamos construir esse texto juntos, parágrafo por parágrafo!

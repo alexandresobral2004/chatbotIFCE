@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "JupiterClass | Assistente de Pesquisa Acadêmica",
+  title: "Methodology.ia – Assistente de Pesquisa Acadêmica",
   description: "Chatbot RAG para pesquisa científica com normas ABNT e metodologia",
 };
 

@@ -43,6 +43,7 @@ export function AuthForm({ onAuthenticated }: { onAuthenticated: (s: AuthSession
   return (
     <main className="min-h-screen flex items-center justify-center p-4">
       <form onSubmit={submit} className="w-full max-w-sm space-y-4 rounded-lg border bg-card p-6" aria-labelledby="auth-title">
+        <p className="text-sm font-semibold text-primary">Methodology.ia</p>
         <h1 id="auth-title" className="text-xl font-semibold">{isRegister ? "Criar conta" : "Entrar"}</h1>
 
         {isRegister && (
